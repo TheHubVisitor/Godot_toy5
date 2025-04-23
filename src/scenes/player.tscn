@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkqulv1fk07m4"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_hdkeg"]
+[ext_resource type="Texture2D" uid="uid://h8l7s7kh2fyu" path="res://assets/sprites/playerGrey_walk1.png" id="2_tdqlt"]
+[ext_resource type="Texture2D" uid="uid://vg8xvwp4vx7g" path="res://assets/sprites/playerGrey_up1.png" id="3_w81ie"]
+[ext_resource type="Texture2D" uid="uid://cou2fgl84l6i0" path="res://assets/sprites/playerGrey_up2.png" id="4_56ybu"]
+[ext_resource type="Texture2D" uid="uid://c6hcqkwg8nncf" path="res://assets/sprites/playerGrey_walk2.png" id="5_6faoi"]
+[ext_resource type="AudioStream" uid="uid://veybomweyf50" path="res://assets/sound/jump.mp3" id="6_rlk8x"]
+[ext_resource type="AudioStream" uid="uid://cq8yjnb4g5ybb" path="res://assets/sound/land.mp3" id="7_epoft"]
+
+[sub_resource type="Gradient" id="Gradient_f66bi"]
+offsets = PackedFloat32Array(0, 0.711039)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j5qne"]
+gradient = SubResource("Gradient_f66bi")
+width = 120
+height = 120
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvtq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tdqlt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w81ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_56ybu")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tdqlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6faoi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4r2wc"]
+radius = 20.0
+height = 136.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(1, -38)
+script = ExtResource("1_hdkeg")
+
+[node name="Vision" type="PointLight2D" parent="."]
+color = Color(0.541176, 0.364706, 0.0431373, 0.686275)
+energy = 2.0
+texture = SubResource("GradientTexture2D_j5qne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wvtq5")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_4r2wc")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rlk8x")
+volume_db = -9.454
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_epoft")
