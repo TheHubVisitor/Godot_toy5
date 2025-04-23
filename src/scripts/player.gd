@@ -9,25 +9,23 @@ var was_on_floor = false
 var jumps_left = 1
 
 func _physics_process(delta: float) -> void:
-	# Horizontal input and smooth acceleration
+	# Horizontal input with minimal acceleration (tighter feel)
 	var direction = Input.get_axis("walk_left", "walk_right")
-	if direction != 0:
-		velocity.x = move_toward(velocity.x, direction * settings.MAX_SPEED, settings.ACCELERATION * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, settings.FRICTION * delta)
+	var target_speed = direction * settings.SPEED
+	velocity.x = move_toward(velocity.x, target_speed, settings.ACCELERATION * delta)
 
-	# Gravity (vertical movement)
+	# Gravity
 	velocity.y += settings.GRAVITY * delta
 
-	# Jumping logic (with double jump)
+	# Jumping (with double jump)
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = settings.JUMP_VELOCITY
-			jumps_left = 1  # Allow one additional jump in air
+			jumps_left = 1
 			jumpSound.play()
 			anim.play("jump")
 		elif jumps_left > 0:
-			velocity.y = settings.JUMP_VELOCITY * 0.9  # slightly smaller double jump
+			velocity.y = settings.JUMP_VELOCITY * 0.9
 			jumps_left -= 1
 			jumpSound.play()
 			anim.play("jump")
@@ -36,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= settings.JUMP_RELEASE_MULTIPLIER
 
-	# Landing sound and jump reset
+	# Landing logic
 	if is_on_floor():
 		if not was_on_floor:
 			landSound.play()
@@ -54,5 +52,6 @@ func _physics_process(delta: float) -> void:
 	# Update floor tracking
 	was_on_floor = is_on_floor()
 
-	# Keep player inside horizontal screen bounds
+	# Keep player within horizontal bounds
 	position.x = clamp(position.x, -screenSize.x/2, screenSize.x/2)
+	

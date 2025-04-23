@@ -2,10 +2,8 @@ extends Node
 class_name settings
 
 # player physics settings
-static var SPEED = 300.0
-static var MAX_SPEED = 450.0
-static var ACCELERATION = 100.0
-static var FRICTION = 80.0
+static var SPEED = 350.0
+static var ACCELERATION = 2000.0
 
 static var JUMP_VELOCITY = -500.0
 static var GRAVITY = 900.0
