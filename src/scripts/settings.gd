@@ -51,7 +51,6 @@ static func setup():
 			collision_threshold = 0.4
 
 		"expert":
-			min_gap_y = 30
 			max_gap_y = max_jump_height * 0.75
 			max_delta_x = max_jump_width * 0.75
 			fade_duration = 7.0
@@ -59,7 +58,7 @@ static func setup():
 			collision_threshold = 0.5
 
 		"forget_it":
-			min_gap_y = 20
+			SPEED *= 1.5
 			max_gap_y = max_jump_height * 0.95
 			max_delta_x = max_jump_width * 0.9
 			fade_duration = 7.0
