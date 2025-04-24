@@ -1,19 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://n3niplwnunmt"]
+[gd_scene load_steps=6 format=3 uid="uid://n3niplwnunmt"]
 
 [ext_resource type="Script" path="res://scripts/platform.gd" id="1_nds85"]
-[ext_resource type="Texture2D" uid="uid://bctwps2s324mb" path="res://assets/sprites/platforms/4.png" id="2_mbhi7"]
+[ext_resource type="Shader" path="res://assets/platform.gdshader" id="2_esq3d"]
+[ext_resource type="Texture2D" uid="uid://bdsm15r70fq4g" path="res://assets/sprites/platforms/1.png" id="2_ynrtb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ird1p"]
+shader = ExtResource("2_esq3d")
+shader_parameter/glow_color = Color(1, 0.95, 0.7, 0.6)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.25)
+shader_parameter/effect_width = 4.0
+shader_parameter/use_glow = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icego"]
-size = Vector2(371, 31)
+size = Vector2(535.5, 46)
 
 [node name="Platform" type="StaticBody2D"]
 script = ExtResource("1_nds85")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mbhi7")
+material = SubResource("ShaderMaterial_ird1p")
+texture = ExtResource("2_ynrtb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 19.5)
+position = Vector2(2.25, 41)
 shape = SubResource("RectangleShape2D_icego")
 one_way_collision = true
 one_way_collision_margin = 2.0

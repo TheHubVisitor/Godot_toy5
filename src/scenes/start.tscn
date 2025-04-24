@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfco7gmob2mqj"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_b5a5m"]
-[ext_resource type="Texture2D" uid="uid://b53ewlk11ndy" path="res://assets/title.png" id="2_ttymb"]
-[ext_resource type="Texture2D" uid="uid://cn5xfhw10lps3" path="res://assets/easy.png" id="3_vdcf2"]
-[ext_resource type="Texture2D" uid="uid://cni6awh2mjma8" path="res://assets/hard.png" id="4_oc4wu"]
-[ext_resource type="Texture2D" uid="uid://c1qyrdvcxkyjn" path="res://assets/expert.png" id="5_3epln"]
-[ext_resource type="Texture2D" uid="uid://brut3hu0dl0fa" path="res://assets/forget_it.png" id="6_pyfsp"]
+[ext_resource type="Texture2D" uid="uid://b53ewlk11ndy" path="res://assets/sprites/ui/title.png" id="2_ttymb"]
+[ext_resource type="Texture2D" uid="uid://cn5xfhw10lps3" path="res://assets/sprites/ui/easy.png" id="3_vdcf2"]
+[ext_resource type="Texture2D" uid="uid://cni6awh2mjma8" path="res://assets/sprites/ui/hard.png" id="4_oc4wu"]
+[ext_resource type="Texture2D" uid="uid://c1qyrdvcxkyjn" path="res://assets/sprites/ui/expert.png" id="5_3epln"]
+[ext_resource type="Texture2D" uid="uid://brut3hu0dl0fa" path="res://assets/sprites/ui/forget_it.png" id="6_pyfsp"]
 
 [node name="Start" type="Control"]
 layout_direction = 1

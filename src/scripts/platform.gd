@@ -32,7 +32,7 @@ func randomize_width():
 	# Adjust collision shape width
 	var shape = collision_shape.shape.duplicate()
 	collision_shape.shape = shape
-	shape.size.x = new_width * 0.9
+	shape.size.x = new_width
 	
 func _process(delta: float) -> void:
 	var player_y = get_parent().get_parent().get_node("Player").position.y

@@ -18,7 +18,7 @@ static var max_gap_y: float
 static var max_delta_x: float
 
 # platform settings
-static var possible_widths: Array[float] = [50, 70, 80, 100, 120]
+static var possible_widths: Array[float] = [60, 80, 90, 100, 120, 140]
 static var fade_duration: float = 10.0
 static var min_opacity: float = 0.2
 static var collision_threshold: float = 0.5

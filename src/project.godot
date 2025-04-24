@@ -13,7 +13,7 @@ config_version=5
 config/name="toy5"
 run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://assets/title.png"
+config/icon="res://assets/sprites/ui/title.png"
 run/defaults/default_clear_color=Color(0.328947, 0.471729, 0.545627, 1)
 
 [display]
@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[gui]
+
+theme/custom="res://assets/new_theme.tres"
 
 [input]
 

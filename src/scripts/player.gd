@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_jumped
+
 @onready var screenSize = get_viewport_rect().size
 @onready var jumpSound = $JumpSound
 @onready var landSound = $LandSound
@@ -24,11 +26,13 @@ func _physics_process(delta: float) -> void:
 			jumps_left = 1
 			jumpSound.play()
 			anim.play("jump")
+			player_jumped.emit()
 		elif jumps_left > 0:
 			velocity.y = settings.JUMP_VELOCITY * 0.9
 			jumps_left -= 1
 			jumpSound.play()
 			anim.play("jump")
+			player_jumped.emit()
 
 	# Variable jump height
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -42,13 +46,16 @@ func _physics_process(delta: float) -> void:
 
 	# Animation logic
 	if is_on_floor():
-		anim.play("walk" if direction != 0 else "idle")
+		if direction != 0:
+			anim.play("walk")
+		else:
+			anim.play("idle")
 	else:
 		anim.play("jump")
-
+	
 	# Movement and slide
 	move_and_slide()
-
+	
 	# Update floor tracking
 	was_on_floor = is_on_floor()
 
