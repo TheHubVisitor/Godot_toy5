@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://beqc3nvcgj4qd"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_n10qq"]
-[ext_resource type="Texture2D" uid="uid://cl6anfasnsav" path="res://assets/sprites/ui/elevation.png" id="2_8t1wt"]
-[ext_resource type="Texture2D" uid="uid://ccprnmjtntf6u" path="res://assets/sprites/ui/time.png" id="3_uyeow"]
-[ext_resource type="Texture2D" uid="uid://ey1rj2fef4og" path="res://assets/sprites/ui/highest.png" id="4_8sl41"]
-[ext_resource type="Texture2D" uid="uid://byvsfr1gnhg67" path="res://assets/sprites/ui/streak.png" id="5_cgudp"]
-[ext_resource type="Texture2D" uid="uid://bsctwnmfqo4mr" path="res://assets/sprites/ui/steps.png" id="6_3onje"]
-[ext_resource type="Texture2D" uid="uid://buniej4oumif7" path="res://assets/sprites/ui/calories.png" id="7_w0wok"]
+[ext_resource type="Texture2D" uid="uid://c4u0r0kq1iwvt" path="res://assets/sprites/ui/elevation.png" id="2_8t1wt"]
+[ext_resource type="Texture2D" uid="uid://c1inksqiv0lgy" path="res://assets/sprites/ui/time.png" id="3_uyeow"]
+[ext_resource type="Texture2D" uid="uid://bwavnm2ide112" path="res://assets/sprites/ui/highest.png" id="4_8sl41"]
+[ext_resource type="Texture2D" uid="uid://bdi6bg1y51dpt" path="res://assets/sprites/ui/streak.png" id="5_cgudp"]
+[ext_resource type="Texture2D" uid="uid://3yoqnyqkq1u6" path="res://assets/sprites/ui/steps.png" id="6_3onje"]
+[ext_resource type="Texture2D" uid="uid://o0qaio87liw7" path="res://assets/sprites/ui/calories.png" id="7_w0wok"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q10ok"]
 bg_color = Color(0.168627, 0.317647, 0.439216, 0.533333)

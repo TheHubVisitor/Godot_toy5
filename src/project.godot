@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="toy5"
+config/name="Toy5: Above the Clouds"
+config/description="A endless verical platformer, where players jump upward on randomly generated and fading in-n-out platform/clouds."
 run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/sprites/ui/title.png"
@@ -20,7 +21,9 @@ run/defaults/default_clear_color=Color(0.328947, 0.471729, 0.545627, 1)
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/mode=1
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [editor_plugins]
 
@@ -50,7 +53,12 @@ jump={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.328947, 0.471729, 0.545627, 1)
