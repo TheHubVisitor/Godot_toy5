@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://e67x04ck0vmo"]
+[gd_scene load_steps=14 format=3 uid="uid://e67x04ck0vmo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bf6nv"]
 [ext_resource type="PackedScene" uid="uid://bkqulv1fk07m4" path="res://scenes/player.tscn" id="1_e6lw6"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://d4mco4u2tak66" path="res://assets/sprites/ui/background.png" id="3_nebye"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="4_ep1sb"]
 [ext_resource type="PackedScene" uid="uid://beqc3nvcgj4qd" path="res://scenes/hud.tscn" id="6_7418s"]
+[ext_resource type="Script" path="res://scripts/popup.gd" id="7_h2dcj"]
+[ext_resource type="Texture2D" uid="uid://dwtw7bycjackn" path="res://assets/sprites/ui/back.png" id="8_468m5"]
+[ext_resource type="Texture2D" uid="uid://bpspw5e1kc1ih" path="res://assets/sprites/ui/ins.png" id="8_pfhdl"]
+[ext_resource type="Texture2D" uid="uid://blxqnm85fct7e" path="res://assets/sprites/ui/ok.png" id="9_kjjr1"]
+[ext_resource type="AudioStream" uid="uid://d367r4ncw2m00" path="res://assets/sound/01 Cinematic Ambient.mp3" id="11_p8303"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsmv6"]
 
@@ -50,3 +55,76 @@ shape = SubResource("RectangleShape2D_2hknt")
 debug_color = Color(0.19987, 0.632553, 0.306906, 0.42)
 
 [node name="HUD" parent="." instance=ExtResource("6_7418s")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Popup" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -574.0
+offset_right = 288.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("7_h2dcj")
+
+[node name="Label" type="TextureRect" parent="UI/Popup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = 99.0
+offset_right = 38.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_pfhdl")
+expand_mode = 1
+
+[node name="OK" type="TextureButton" parent="UI/Popup"]
+process_mode = 2
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -43.0
+offset_right = 85.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 0
+action_mode = 0
+texture_normal = ExtResource("9_kjjr1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Back" type="TextureButton" parent="UI"]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 70.0
+tooltip_text = "Back to Main Menu"
+action_mode = 0
+texture_normal = ExtResource("8_468m5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="01CinematicAmbient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_p8303")
+volume_db = -5.0
+playback_type = 1
+parameters/looping = true
+
+[connection signal="pressed" from="UI/Popup/OK" to="UI/Popup" method="_on_ok_pressed"]
+[connection signal="pressed" from="UI/Back" to="." method="_on_back_pressed"]

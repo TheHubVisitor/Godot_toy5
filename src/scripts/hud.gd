@@ -22,11 +22,11 @@ func _process(delta: float) -> void:
 func update_elevation(player_y: float):
 	# Assuming higher negative values mean higher elevation
 	elevation = -player_y
-	elevation_label.text = "%d m" % (elevation - 45)
+	elevation_label.text = "%dm" % (elevation - 45)
 	
 	if elevation > highest_elevation:
 		highest_elevation = elevation
-		highest_label.text = "%d m" % (highest_elevation - 45)
+		highest_label.text = "%dm" % (highest_elevation - 45)
 
 func update_time(seconds: float):
 	var minutes = int(seconds / 60)
@@ -43,4 +43,4 @@ func update_steps(total_steps: int):
 
 func update_calories(total_calories: float):
 	calories = total_calories
-	calories_label.text = "%.1f kJ" % calories
+	calories_label.text = "%.1fkJ" % calories

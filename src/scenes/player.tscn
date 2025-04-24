@@ -75,7 +75,7 @@ shape = SubResource("CapsuleShape2D_4r2wc")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rlk8x")
-volume_db = -9.454
+volume_db = -13.0
 
 [node name="LandSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_epoft")

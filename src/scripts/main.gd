@@ -23,6 +23,9 @@ func _ready():
 
 	player.player_jumped.connect(_on_player_jumped)
 
+	$UI/Popup.show_popup()
+	$"01CinematicAmbient".play()
+
 func spawn_platform(pos: Vector2):
 	var platform = platform_scene.instantiate()
 	platform.position = pos
@@ -79,3 +82,7 @@ func _on_player_jumped():
 
 	if player_y < recent_peak_y - settings.distance_allowed / 2:
 		recent_peak_y = player_y
+
+func _on_back_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/start.tscn")
